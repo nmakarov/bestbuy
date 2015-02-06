@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bestbuy Categories and Items</title>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app/css/bestbuy.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+  </head>
+  <body ng-app="bb.app">
+    <div class="container">
+      
+      <div ng-controller="bbPopupCtrl">
+      </div>
+
+      <div class="row">
+        <div class="col-md-3" ng-controller="bbCategoriesCtrl">
+
+          <h2>Categories</h2>
+
+          <ul class="nav nav-pills nav-stacked">
+            <li ng-class="{active:category.id===active}" ng-repeat="category in categories.subCategories">
+              <a href="#/{{category.id}}" ng-click="clicked(category.id)">{{category.name}}</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-9" ng-controller="bbProductsCtrl">
+
+          <h2>Items</h2>
+
+          <div class="row product">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in products.products">
+              <div class="thumbnail">
+
+                <img 
+                  src="http://www.bestbuy.ca/{{product.thumbnailImage}}" 
+                  alt="{{product.name}}">
+                  <div class="productName">{{product.name}}</div>
+                  <div class="productActions"><a href="#" class="btn btn-primary" role="button" ng-click="productClicked(product)">Show...</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app/js/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="app/js/bestbuyConfig.js"></script>
+    <script src="app/js/bestbuyServices.js"></script>
+    <script src="app/js/bestbuyControllers.js"></script>
+    <script src="app/js/bestbuyApp.js"></script>
+
+  </body>
+</html>

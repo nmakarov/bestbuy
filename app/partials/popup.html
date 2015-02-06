@@ -1,0 +1,18 @@
+  
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="close()">&times;</button>
+      <h2 class="modal-title">{{product.name}}</h2>
+    </div>
+
+    <div class="modal-body">
+      <img 
+          src="http://www.bestbuy.ca/{{product.thumbnailImage}}" 
+          alt="{{product.name}}">
+      <div class="description">{{product.shortDescription}}</div>
+      <!-- <div class="price">{{product.salePrice}}</div> -->
+      <h2 class="modal-title price"> <span class="label label-default">${{product.salePrice}}</span></h2>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="close()">Close</button>
+    </div>
